@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-matrix-base: #000000;
+  --color-matrix-main: #00FF41;
+  --color-matrix-sec: #008F11;
+  --color-matrix-bg: #0a0a0a;
+
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-matrix-base);
+    color: var(--color-matrix-main);
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+  }
+
+  /* Scrollbar estilización tipo terminal */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-matrix-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-matrix-sec);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-matrix-main);
+  }
+
+  ::selection {
+    background: var(--color-matrix-main);
+    color: var(--color-matrix-base);
+  }
+}
+
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 5px var(--color-matrix-main), 0 0 10px var(--color-matrix-main);
+  }
+  
+  .glow-box {
+    box-shadow: 0 0 5px var(--color-matrix-sec), inset 0 0 5px var(--color-matrix-sec);
+  }
+  
+  .glow-box:hover {
+    box-shadow: 0 0 10px var(--color-matrix-main), inset 0 0 10px var(--color-matrix-main);
+    border-color: var(--color-matrix-main);
+  }
+  
+  .terminal-window {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid var(--color-matrix-sec);
+    backdrop-filter: blur(4px);
+  }
+}
